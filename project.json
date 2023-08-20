@@ -1,0 +1,8 @@
+{
+  "slug": "evidence-isolation",
+  "title": "Untrusted evidence isolation demo",
+  "description": "Builds a structured request envelope separating fixed task instructions, the user\u2019s question, and labeled untrusted source text. A conservative pattern scanner adds review flags without deleting source content. A separate tool gate rejects proposals whose provenance is source evidence and accepts only allowlisted trusted-user actions. These structural checks are educational; they do not prove that a language model will resist prompt injection, and the scanner deliberately has false negatives/positives. Trusted provenance must be assigned outside a model or document.",
+  "category": "agents",
+  "demo_args": [],
+  "expected_exit": 0
+}
