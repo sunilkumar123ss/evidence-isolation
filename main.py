@@ -26,3 +26,9 @@ def build_envelope(question,sources):
     return {"task_instruction":INSTRUCTION,"user_question":question,"evidence":evidence,
             "model_called":False,"scan_is_complete_defense":False}
 
+
+def authorize_tool(name,provenance):
+    if provenance != "trusted_user":return {"allowed":False,"reason":"source/model provenance cannot authorize tools"}
+    if not isinstance(name, str) or name not in ALLOWED_TOOLS:return {"allowed":False,"reason":"tool is not allowlisted"}
+    return {"allowed":True,"reason":"trusted user requested an allowlisted read tool"}
+
