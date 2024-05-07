@@ -32,3 +32,17 @@ def authorize_tool(name,provenance):
     if not isinstance(name, str) or name not in ALLOWED_TOOLS:return {"allowed":False,"reason":"tool is not allowlisted"}
     return {"allowed":True,"reason":"trusted user requested an allowlisted read tool"}
 
+
+def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--sources",type=Path,default=Path(__file__).with_name("sources.json"))
+    parser.add_argument("--question",default="How long are rollback snapshots retained?")
+    args=parser.parse_args()
+    try:result=build_envelope(args.question,json.loads(args.sources.read_text()))
+    except (ValueError,OSError,TypeError) as exc:parser.error(str(exc))
+    result["tool_gate_examples"]={"source_action":authorize_tool("search_documents","untrusted_evidence"),
+                                  "user_read_action":authorize_tool("search_documents","trusted_user"),
+                                  "user_unknown_action":authorize_tool("shell_execute","trusted_user")}
+    print(json.dumps(result,indent=2))
+
+if __name__ == "__main__":main()
