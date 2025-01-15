@@ -4,7 +4,7 @@ This reference implementation and all of the following milestone commits were pr
 
 **Every recorded author and committer date in this timeline is synthetic. These dates are not evidence that the code was written, tested, deployed, or used professionally in the past.**
 
-This snapshot is milestone 5 of 13. It is an incomplete tutorial stage; source, fixtures, tests, the CLI, and automation are introduced progressively.
+This snapshot is milestone 6 of 13. It is an incomplete tutorial stage; source, fixtures, tests, the CLI, and automation are introduced progressively.
 
 The progression decomposes already-completed October 2026 code into meaningful additions. It is not recovered original development history. Publication time is separate from the synthetic Git timestamps.
 
@@ -17,7 +17,7 @@ The progression decomposes already-completed October 2026 code into meaningful a
 | 3 | 2024-03-09T15:34:02+05:30 | Implement build envelope (present) |
 | 4 | 2024-04-18T19:44:42+05:30 | Implement authorize tool (present) |
 | 5 | 2024-05-07T15:35:48+05:30 | Expose the command-line demonstration and input handling (present) |
-| 6 | 2025-01-15T11:44:03+05:30 | Test hostile text remains data with flags (later stage) |
+| 6 | 2025-01-15T11:44:03+05:30 | Test hostile text remains data with flags (present) |
 | 7 | 2025-03-06T09:33:58+05:30 | Test source and unknown tools fail (later stage) |
 | 8 | 2025-03-29T12:39:26+05:30 | Test duplicate ids and extra fields fail (later stage) |
 | 9 | 2025-05-04T11:31:22+05:30 | Test scanner has known false negatives (later stage) |
