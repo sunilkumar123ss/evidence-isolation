@@ -21,4 +21,8 @@ class IsolationTests(unittest.TestCase):
         self.assertEqual(result["evidence"][0]["trust"],"untrusted_evidence")
         self.assertIn("instruction_override",result["evidence"][0]["review_flags"])
         self.assertFalse(result["scan_is_complete_defense"])
+    def test_source_and_unknown_tools_fail(self):
+        self.assertFalse(authorize_tool("search_documents","untrusted_evidence")["allowed"])
+        self.assertFalse(authorize_tool("shell_execute","trusted_user")["allowed"])
+        self.assertTrue(authorize_tool("search_documents","trusted_user")["allowed"])
 
