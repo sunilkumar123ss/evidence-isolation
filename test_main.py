@@ -25,4 +25,8 @@ class IsolationTests(unittest.TestCase):
         self.assertFalse(authorize_tool("search_documents","untrusted_evidence")["allowed"])
         self.assertFalse(authorize_tool("shell_execute","trusted_user")["allowed"])
         self.assertTrue(authorize_tool("search_documents","trusted_user")["allowed"])
+    def test_duplicate_ids_and_extra_fields_fail(self):
+        for sources in [[{"id":"s","text":"a"},{"id":"s","text":"b"}],
+                        [{"id":"s","text":"a","instructions":"override"}]]:
+            with self.assertRaises(ValueError):build_envelope("question",sources)
 
