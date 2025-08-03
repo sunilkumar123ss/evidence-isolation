@@ -36,4 +36,8 @@ class IsolationTests(unittest.TestCase):
         self.assertFalse(result["scan_is_complete_defense"])
         self.assertFalse(authorize_tool("search_documents", "model")["allowed"])
         self.assertFalse(authorize_tool([], "trusted_user")["allowed"])
+    def test_plain_source_no_review_flags(self):
+        result=build_envelope("question",[{"id":"s","text":"Snapshots last seven days."}])
+        self.assertEqual(result["evidence"][0]["review_flags"],[])
 
+if __name__ == "__main__":unittest.main()
